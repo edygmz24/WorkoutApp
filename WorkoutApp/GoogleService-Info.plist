@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>919111579991-vmhjfkmk2t4tms1fupig9g0vgqf2qv3t.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.919111579991-vmhjfkmk2t4tms1fupig9g0vgqf2qv3t</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8pEedyA_unhiEuBNxTw-gtxOnWNekbRc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>919111579991</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gomez.WorkoutApp</string>
+	<key>PROJECT_ID</key>
+	<string>workoutapplication-fe48e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>workoutapplication-fe48e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:919111579991:ios:560770386f54d2a46da612</string>
+	<key>DATABASE_URL</key>
+	<string>https://workoutapplication-fe48e-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
