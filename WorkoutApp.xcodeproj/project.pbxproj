@@ -26,6 +26,10 @@
 		36E77D8827C3366F00764B45 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 36E77D8727C3366E00764B45 /* GoogleService-Info.plist */; };
 		36E77D8A27C342BF00764B45 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E77D8927C342BE00764B45 /* SignInView.swift */; };
 		36E77D8C27C34B9A00764B45 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E77D8B27C34B9A00764B45 /* SignUpView.swift */; };
+		36E77D8E27C4805400764B45 /* MainDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E77D8D27C4805400764B45 /* MainDashboardView.swift */; };
+		36E77D9027C4865100764B45 /* DailyWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E77D8F27C4865000764B45 /* DailyWorkoutView.swift */; };
+		36E77D9227C4869E00764B45 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E77D9127C4869E00764B45 /* UserProfileView.swift */; };
+		36E77D9427C48D3100764B45 /* UserTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E77D9327C48D3100764B45 /* UserTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		36E77D8727C3366E00764B45 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		36E77D8927C342BE00764B45 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		36E77D8B27C34B9A00764B45 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		36E77D8D27C4805400764B45 /* MainDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDashboardView.swift; sourceTree = "<group>"; };
+		36E77D8F27C4865000764B45 /* DailyWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWorkoutView.swift; sourceTree = "<group>"; };
+		36E77D9127C4869E00764B45 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		36E77D9327C48D3100764B45 /* UserTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 			children = (
 				36E77D6027C3350300764B45 /* WorkoutAppApp.swift */,
 				36E77D6227C3350300764B45 /* ContentView.swift */,
+				36E77D9527C48D4E00764B45 /* Logged In Views */,
 				36E77D8927C342BE00764B45 /* SignInView.swift */,
 				36E77D8B27C34B9A00764B45 /* SignUpView.swift */,
 				36E77D8727C3366E00764B45 /* GoogleService-Info.plist */,
@@ -98,6 +107,17 @@
 				36E77D6727C3350500764B45 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		36E77D9527C48D4E00764B45 /* Logged In Views */ = {
+			isa = PBXGroup;
+			children = (
+				36E77D9327C48D3100764B45 /* UserTabView.swift */,
+				36E77D8D27C4805400764B45 /* MainDashboardView.swift */,
+				36E77D8F27C4865000764B45 /* DailyWorkoutView.swift */,
+				36E77D9127C4869E00764B45 /* UserProfileView.swift */,
+			);
+			path = "Logged In Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,9 +208,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36E77D9227C4869E00764B45 /* UserProfileView.swift in Sources */,
 				36E77D8C27C34B9A00764B45 /* SignUpView.swift in Sources */,
 				36E77D8A27C342BF00764B45 /* SignInView.swift in Sources */,
+				36E77D8E27C4805400764B45 /* MainDashboardView.swift in Sources */,
 				36E77D6327C3350300764B45 /* ContentView.swift in Sources */,
+				36E77D9427C48D3100764B45 /* UserTabView.swift in Sources */,
+				36E77D9027C4865100764B45 /* DailyWorkoutView.swift in Sources */,
 				36E77D6127C3350300764B45 /* WorkoutAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
