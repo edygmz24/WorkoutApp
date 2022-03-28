@@ -41,7 +41,10 @@ struct SignInView: View {
                         guard !email.isEmpty, !password.isEmpty else {
                             return
                         }
-                        viewModel.signIn(email: email, password: password)
+                        Task {
+                            await viewModel.signIn(email: email, password: password)
+                        //viewModel.userType = viewModel.getUserType
+                        }
                     }, label: {
                         Text("Sign In")
                             .foregroundColor(Color.white)

@@ -10,7 +10,7 @@ import SwiftUI
 struct UserTabView: View {
     var body: some View {
         TabView{
-            MainDashboardView()
+            UserDashboardView()
                 .tabItem{
                     Image(systemName: "list.bullet")
                     Text("Dashboard")
@@ -31,6 +31,6 @@ struct UserTabView: View {
 
 struct UserTabView_Previews: PreviewProvider {
     static var previews: some View {
-        UserTabView()
+        UserTabView().environmentObject(AppViewModel())
     }
 }

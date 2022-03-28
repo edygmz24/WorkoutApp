@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct DailyWorkoutView: View {
+    @ObservedObject var exerciseView = ExerciseViewModel()
     var body: some View {
-        Text("Daily Workout View")
+        List(exerciseView.list){ item in
+            Text(item.exerciseName)
+                .padding()
+            Text(item.exerciseDetails)
+                .padding()
+        }
     }
 }
 

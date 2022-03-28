@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainDashboardView: View {
+struct UserDashboardView: View {
     
     @EnvironmentObject var viewModel : AppViewModel
     
@@ -34,11 +34,14 @@ struct MainDashboardView: View {
             }
             Spacer()
         }
+        .fullScreenCover(isPresented: $viewModel.triggerSignInView){
+            SignInView()
+        }
     }
 }
 
 struct MainDashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        MainDashboardView().environmentObject(AppViewModel())
+        UserDashboardView().environmentObject(AppViewModel())
     }
 }

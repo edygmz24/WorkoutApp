@@ -57,7 +57,9 @@ struct SignUpView: View {
                         guard !email.isEmpty, !password.isEmpty, !confirmPassword.isEmpty, !fullName.isEmpty, password == confirmPassword else {
                             return
                         }
-                        viewModel.signUp(email: email, password: password, fullName: fullName)
+                        Task {
+                            await viewModel.signUp(email: email, password: password, fullName: fullName)
+                        }
                     }, label: {
                         Text("Sign Up")
                             .foregroundColor(Color.white)
