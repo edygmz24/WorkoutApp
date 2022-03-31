@@ -15,50 +15,49 @@ struct SignInView: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View {
-        NavigationView{
+        VStack{
+            Image("appLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150, height: 150)
+            
             VStack{
-                Image("appLogo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 150, height: 150)
+                TextField("Email Address", text: $email)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(8)
                 
-                VStack{
-                    TextField("Email Address", text: $email)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
-                    
-                    SecureField("Password", text: $password)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                        .padding()
-                        .background(Color(.secondarySystemBackground))
-                        .cornerRadius(8)
-                    
-                    Button(action: {
-                        guard !email.isEmpty, !password.isEmpty else {
-                            return
-                        }
-                        Task {
-                            await viewModel.signIn(email: email, password: password)
-                        }
-                    }, label: {
-                        Text("Sign In")
-                            .foregroundColor(Color.white)
-                            .frame(width: 200, height: 50)
-                            .background(Color.blue)
-                    })
-                        .cornerRadius(10)
-                    
-                    NavigationLink("Create Account", destination: SignUpView())
-                }
-                .padding()
+                SecureField("Password", text: $password)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(8)
                 
-                Spacer()
+                Button(action: {
+                    guard !email.isEmpty, !password.isEmpty else {
+                        return
+                    }
+                    Task {
+                        await viewModel.signIn(email: email, password: password)
+                    }
+                }, label: {
+                    Text("Sign In")
+                        .foregroundColor(Color.white)
+                        .frame(width: 200, height: 50)
+                        .background(Color.blue)
+                })
+                    .cornerRadius(10)
+                
+                NavigationLink("Create Account", destination: SignUpView())
             }
-        }.navigationTitle("Sign In")
+            .padding()
+            
+            Spacer()
+        }
+        .navigationBarTitle("Sign In", displayMode: .inline)
     }
 }
 

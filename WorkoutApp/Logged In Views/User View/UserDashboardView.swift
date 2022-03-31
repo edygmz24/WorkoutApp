@@ -32,9 +32,8 @@ struct UserDashboardView: View {
                     .padding()
             }
             Spacer()
-        }
-        .fullScreenCover(isPresented: $viewModel.triggerSignInView){
-            SignInView()
+        }.fullScreenCover(isPresented: $viewModel.triggerSignInView){
+            //SignInView().navigationBarHidden(true)
         }
     }
 }

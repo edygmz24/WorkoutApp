@@ -20,7 +20,8 @@ struct ContentView: View {
                     .resizable()
                 Spacer()
                 NavigationLink("Continue", destination: InitialView())
-                    .navigationBarHidden(true)
+                    .navigationBarTitle("Workout App", displayMode: .inline)
+                    //.navigationBarHidden(true)
             }.onAppear {
                 viewModel.signedIn = viewModel.isSignedIn
                 if viewModel.signedIn {
@@ -39,10 +40,10 @@ struct InitialView: View {
     
     var body: some View{
         if viewModel.signedIn {
-            MainView().navigationBarHidden(true)
+            MainView()
         }
         else {
-            SignInView().navigationBarHidden(true)
+            SignInView()
         }
     }
 }

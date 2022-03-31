@@ -9,10 +9,11 @@ import SwiftUI
 
 struct UserProfileView: View {
     var body: some View {
-        Text("User Profile View")
-            .navigationTitle("User Profile")
-            .navigationBarHidden(true)
-            .edgesIgnoringSafeArea(.top)
+        VStack{
+            Text("User Profile View")
+        }
+        //.navigationBarHidden(true)
+        .edgesIgnoringSafeArea(.top)
     }
 }
 

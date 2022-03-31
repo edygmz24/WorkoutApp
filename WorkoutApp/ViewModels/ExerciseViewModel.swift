@@ -12,6 +12,7 @@ import FirebaseAuth
 class ExerciseViewModel : ObservableObject {
     
     @Published var list = [ExerciseDetails]()
+    @Published var exercise : ExerciseDetails = ExerciseDetails(id: "", exerciseName: "", exerciseDetails: "")
     
     func getExercises(){
         
@@ -46,4 +47,19 @@ class ExerciseViewModel : ObservableObject {
             }
         }
     }
+    
+    func addExercises(exercise: ExerciseDetails){
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser?.uid ?? ""
+        let dbName = userID + "_Exercise"
+        let listSize = self.list.count
+        db.collection(dbName).document("exercise_" + String(listSize)).setData(["exerciseName": exercise.exerciseName, "exerciseDetails": exercise.exerciseDetails]) { err in
+            if let err = err {
+                print("Error writing documnet: \(err)")
+            } else {
+                print("Document successfully written.")
+            }
+        }
+    }
+    
 }

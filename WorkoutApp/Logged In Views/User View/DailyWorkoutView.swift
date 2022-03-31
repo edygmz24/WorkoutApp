@@ -14,15 +14,15 @@ struct DailyWorkoutView: View {
         VStack{
             Text("Exercises")
             List(exerciseView.list){ item in
-                Text(item.exerciseName)
-                    .padding()
-                Text(item.exerciseDetails)
-                    .padding()
-            }
-            .navigationTitle("Workout")
-            .navigationBarHidden(true)
-            .edgesIgnoringSafeArea(.top)
-        }.padding()
+                Text(item.exerciseName + "\n" +
+                     item.exerciseDetails)
+                    //.padding()
+                //Text(item.exerciseDetails)
+                    //.padding()
+            }.listRowSeparatorTint(.black)
+            
+        }.edgesIgnoringSafeArea(.top)
+        .padding()
             .onAppear(){
                 exerciseView.getExercises()
             }

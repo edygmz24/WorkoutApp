@@ -71,7 +71,7 @@ struct SignUpView: View {
                 Spacer()
             }
             .padding()
-        } .navigationTitle("Create Account")
+        } .navigationBarTitle("Create Account", displayMode: .inline)
     }
 }
 
