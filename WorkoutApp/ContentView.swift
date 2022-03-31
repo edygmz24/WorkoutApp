@@ -20,16 +20,16 @@ struct ContentView: View {
                     .resizable()
                 Spacer()
                 NavigationLink("Continue", destination: InitialView())
-            }
-            
-        }.onAppear {
-            viewModel.signedIn = viewModel.isSignedIn
-            if viewModel.signedIn {
-                Task {
-                    await viewModel.getUserType()
+                    .navigationBarHidden(true)
+            }.onAppear {
+                viewModel.signedIn = viewModel.isSignedIn
+                if viewModel.signedIn {
+                    Task {
+                        await viewModel.getUserType()
+                    }
                 }
+                print("Content View user type: " + viewModel.userType )
             }
-            print("Contetn View user type: " + viewModel.userType )
         }
     }
 }
@@ -38,15 +38,11 @@ struct InitialView: View {
     @EnvironmentObject var viewModel: AppViewModel
     
     var body: some View{
-        NavigationView {
-            if viewModel.signedIn {
-                MainView()
-            }
-            else {
-                SignInView()
-            }
-        }.onAppear(){
-            print("Initial View user type " + viewModel.userType)
+        if viewModel.signedIn {
+            MainView().navigationBarHidden(true)
+        }
+        else {
+            SignInView().navigationBarHidden(true)
         }
     }
 }

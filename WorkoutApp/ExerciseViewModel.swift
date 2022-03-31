@@ -16,7 +16,8 @@ class ExerciseViewModel : ObservableObject {
     func getExercises(){
         
         // get the dbName
-        let dbName = Auth.auth().currentUser?.uid ?? "" + "_Exercise"
+        let userID = Auth.auth().currentUser?.uid ?? ""
+        let dbName = userID + "_Exercise"
         print("DB Name is: " + dbName)
         
         // Get a reference to the DB
@@ -37,6 +38,8 @@ class ExerciseViewModel : ObservableObject {
                         }
                     }
                 }
+                print("Exercises: ")
+                print(self.list)
             } else {
                 //handle the error
                 print(error ?? "Error getting documents")

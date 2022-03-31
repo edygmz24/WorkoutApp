@@ -43,7 +43,6 @@ struct SignInView: View {
                         }
                         Task {
                             await viewModel.signIn(email: email, password: password)
-                        //viewModel.userType = viewModel.getUserType
                         }
                     }, label: {
                         Text("Sign In")

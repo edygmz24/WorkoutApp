@@ -25,6 +25,9 @@ struct UserTabView: View {
                     Image(systemName: "person")
                     Text("Dashboard")
                 }
+                .navigationTitle("User Tab View")
+                .navigationBarHidden(true)
+                .edgesIgnoringSafeArea(.top)
         }
     }
 }

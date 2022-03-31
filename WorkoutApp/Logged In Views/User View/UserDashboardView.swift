@@ -12,7 +12,6 @@ struct UserDashboardView: View {
     @EnvironmentObject var viewModel : AppViewModel
     
     var body: some View {
-
         VStack{
             HStack{
                 Spacer()
