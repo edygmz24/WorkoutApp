@@ -43,7 +43,7 @@ class ExerciseViewModel : ObservableObject {
                 print(self.list)
             } else {
                 //handle the error
-                print(error ?? "Error getting documents")
+                print(error ?? "Error getting documents.")
             }
         }
     }

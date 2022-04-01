@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3679D4D127F697A10083A321 /* TrainerExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679D4D027F697A10083A321 /* TrainerExerciseView.swift */; };
+		3679D4D327F69F900083A321 /* TrainerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679D4D227F69F900083A321 /* TrainerViewModel.swift */; };
 		36C36CD827D1DB89001FFF2C /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C36CD727D1DB88001FFF2C /* AppViewModel.swift */; };
 		36C36CDB27D1DBFC001FFF2C /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C36CD927D1DBFC001FFF2C /* UserDetails.swift */; };
 		36C36CDC27D1DBFC001FFF2C /* ExerciseDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C36CDA27D1DBFC001FFF2C /* ExerciseDetails.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3679D4D027F697A10083A321 /* TrainerExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerExerciseView.swift; sourceTree = "<group>"; };
+		3679D4D227F69F900083A321 /* TrainerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewModel.swift; sourceTree = "<group>"; };
 		36C36CD727D1DB88001FFF2C /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		36C36CD927D1DBFC001FFF2C /* UserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 		36C36CDA27D1DBFC001FFF2C /* ExerciseDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseDetails.swift; sourceTree = "<group>"; };
@@ -87,8 +91,18 @@
 			children = (
 				36C36CE327D1E348001FFF2C /* ExerciseViewModel.swift */,
 				36C36CD727D1DB88001FFF2C /* AppViewModel.swift */,
+				3679D4D227F69F900083A321 /* TrainerViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3679D4D427F6A2D80083A321 /* Class Objects */ = {
+			isa = PBXGroup;
+			children = (
+				36C36CDA27D1DBFC001FFF2C /* ExerciseDetails.swift */,
+				36C36CD927D1DBFC001FFF2C /* UserDetails.swift */,
+			);
+			path = "Class Objects";
 			sourceTree = "<group>";
 		};
 		36A9C5C627F1477E00645039 /* User View */ = {
@@ -106,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				36C36CDF27D1E18E001FFF2C /* TrainerView.swift */,
+				3679D4D027F697A10083A321 /* TrainerExerciseView.swift */,
 			);
 			path = "Trainer View";
 			sourceTree = "<group>";
@@ -131,8 +146,7 @@
 			children = (
 				36E77D6027C3350300764B45 /* WorkoutAppApp.swift */,
 				36E77D6227C3350300764B45 /* ContentView.swift */,
-				36C36CDA27D1DBFC001FFF2C /* ExerciseDetails.swift */,
-				36C36CD927D1DBFC001FFF2C /* UserDetails.swift */,
+				3679D4D427F6A2D80083A321 /* Class Objects */,
 				3679D4CF27F566A60083A321 /* ViewModels */,
 				36E77D9527C48D4E00764B45 /* Logged In Views */,
 				36E77D8927C342BE00764B45 /* SignInView.swift */,
@@ -261,7 +275,9 @@
 				36C36CDC27D1DBFC001FFF2C /* ExerciseDetails.swift in Sources */,
 				36E77D9427C48D3100764B45 /* UserTabView.swift in Sources */,
 				36E77D9027C4865100764B45 /* DailyWorkoutView.swift in Sources */,
+				3679D4D327F69F900083A321 /* TrainerViewModel.swift in Sources */,
 				36E77D6127C3350300764B45 /* WorkoutAppApp.swift in Sources */,
+				3679D4D127F697A10083A321 /* TrainerExerciseView.swift in Sources */,
 				36C36CE427D1E348001FFF2C /* ExerciseViewModel.swift in Sources */,
 				36C36CDB27D1DBFC001FFF2C /* UserDetails.swift in Sources */,
 			);

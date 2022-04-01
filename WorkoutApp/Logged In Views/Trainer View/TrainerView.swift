@@ -9,25 +9,35 @@ import SwiftUI
 
 struct TrainerView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    @ObservedObject var trainerModel = TrainerViewModel()
+    
     var body: some View {
         VStack{
+            HStack{
+                Text(trainerModel.trainerName)
+                Spacer()
+                Button(action: {
+                    viewModel.signOut()
+                }, label: {
+                    Text("Sign Out")
+                        .foregroundColor(Color.white)
+                        .frame(width: 90, height: 30)
+                        .background(Color.blue)
+                })
+                    .cornerRadius(10)
+            }
+            
+            List(trainerModel.userList){ item in
+                Text(item.userName)
+            }.listRowSeparatorTint(.black)
+            
             Spacer()
-            
-            Text("This is the Trainer View")
-            
-            Spacer()
-            
-            Button(action: {
-                viewModel.signOut()
-            }, label: {
-                Text("Sign Out")
-                    .foregroundColor(Color.white)
-                    .frame(width: 90, height: 30)
-                    .background(Color.blue)
-            })
-                .cornerRadius(10)
+        } .padding()
+        .onAppear(){
+            trainerModel.getTrainerName()
+            trainerModel.getUsers()
         }
-        
+        .navigationBarTitle("Clients", displayMode: .inline)
     }
 }
 
