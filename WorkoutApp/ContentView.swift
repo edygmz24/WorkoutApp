@@ -18,6 +18,7 @@ struct ContentView: View {
                 Spacer()
                 Image("appLogo")
                     .resizable()
+                    .scaledToFit()
                 Spacer()
                 NavigationLink("Continue", destination: InitialView())
                     .navigationBarTitle("Workout App", displayMode: .inline)

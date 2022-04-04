@@ -28,7 +28,9 @@ struct TrainerView: View {
             }
             
             List(trainerModel.userList){ item in
-                Text(item.userName)
+                NavigationLink(destination: TrainerExerciseView(user: item), label: {
+                    Text(item.userName)
+                })
             }.listRowSeparatorTint(.black)
             
             Spacer()

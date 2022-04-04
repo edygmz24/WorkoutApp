@@ -12,6 +12,9 @@ import FirebaseAuth
 class TrainerViewModel : ObservableObject {
     @Published var userList = [UserDetails]()
     @Published var trainerName = ""
+    @Published var userExerciseList = [ExerciseDetails]()
+    @Published var userExericse = ExerciseDetails(id: "", exerciseName: "", exerciseDetails: "")
+    @Published var totalExercises = 0
     
     func getTrainerName(){
         self.trainerName = Auth.auth().currentUser?.displayName ?? ""
@@ -20,6 +23,7 @@ class TrainerViewModel : ObservableObject {
     func getUsers(){
         let db = Firestore.firestore()
         let coachName = Auth.auth().currentUser?.displayName ?? ""
+        self.userList.removeAll()
         print("Coach name: " + coachName)
         
         // read the documents at a specific path
@@ -49,6 +53,55 @@ class TrainerViewModel : ObservableObject {
     }
     
     func getUserExercise(userId: String){
+        // print userId to console
+        print("User Id fetched for caoch is: " + userId)
+        
+        //empty previous exercise array
+        self.userExerciseList.removeAll()
+        self.totalExercises = 0
+        
+        let db = Firestore.firestore()
+        
+        db.collection(userId+"_Exercise").getDocuments { snapshot, error in
+            if error == nil {
+                if let snapshot = snapshot {
+                    DispatchQueue.main.async {
+                        snapshot.documents.forEach { doc in
+                            let fetchedExercise = ExerciseDetails(id: doc.documentID, exerciseName: doc["exerciseName"] as? String ?? "", exerciseDetails: doc["exerciseDetails"] as? String ?? "")
+                            
+                            self.userExerciseList.append(fetchedExercise)
+                        }
+                        // update totalExercises with the size of the userExerciseList
+                        self.totalExercises = self.userExerciseList.count
+                        print("Total number of exercises: \(self.totalExercises)")
+                        print("Exercises: \(String(describing: self.userExerciseList))")
+                    }
+                }
+            } else {
+                print("Error getting exercises. Error msg: \(String(describing: error))")
+            }
+        }
+    }
+    
+    func addExercise(userExercise: ExerciseDetails, userId: String){
+        
+        let db = Firestore.firestore()
+        var documentId = ""
+        
+        if self.totalExercises == 0 {
+            documentId = "exercise_1"
+        } else {
+            documentId = "exercise_" + String(self.totalExercises+1)
+        }
+        
+        db.collection(userId+"_Exercise").document(documentId).setData(["exerciseName": userExercise.exerciseName, "exerciseDetails": userExercise.exerciseDetails]) { err in
+            if let err = err {
+                print("Error saving exercise. Error msg: \(err)")
+            } else {
+                print("Exercise saved successfully.")
+            }
+        }
+        
         
     }
 }
