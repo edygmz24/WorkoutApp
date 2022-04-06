@@ -11,6 +11,10 @@ struct TrainerAddExerciseView: View {
     
     @StateObject var trainerViewModel = TrainerViewModel()
     
+    @Environment(\.presentationMode)  var presentationMode
+    
+    var userId : String
+    
     var body: some View {
         NavigationView {
             Form {
@@ -20,7 +24,8 @@ struct TrainerAddExerciseView: View {
                 }
             }
         }
-        .navigationTitle("New Exercise")
+        .navigationBarTitle("New Exercise", displayMode: .inline)
+        .navigationBarHidden(false)
         .navigationBarItems(
             leading: Button(action: {
                 cancelledTapped()
@@ -33,18 +38,24 @@ struct TrainerAddExerciseView: View {
                 Text("Submit")
             }))
     }
-}
-
-func cancelledTapped(){
     
-}
+    func cancelledTapped(){
+        dismiss()
+    }
 
-func submitTapped(){
-    
+    func submitTapped(){
+        trainerViewModel.submitExercise(userId: userId)
+        dismiss()
+    }
+
+    func dismiss(){
+        presentationMode.wrappedValue.dismiss()
+    }
+
 }
 
 struct TrainerAddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        TrainerAddExerciseView()
+        TrainerAddExerciseView(userId: "randomId")
     }
 }

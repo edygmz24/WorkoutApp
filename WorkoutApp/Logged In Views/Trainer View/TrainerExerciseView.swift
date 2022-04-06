@@ -12,6 +12,8 @@ struct TrainerExerciseView: View {
     var user: UserDetails
     @StateObject var trainerModel = TrainerViewModel()
     
+    @State private var presentAddNewExercise = false
+    
     var body: some View {
         VStack{
             List(trainerModel.userExerciseList) { item in
@@ -22,6 +24,16 @@ struct TrainerExerciseView: View {
                 trainerModel.getUserExercise(userId: user.userId)
             }
             .navigationBarTitle("Exercises", displayMode: .inline)
+            .toolbar{
+                ToolbarItem{
+                        Button(action: { presentAddNewExercise.toggle() }, label: {
+                            Image(systemName: "plus")
+                        })
+                    }
+            }
+            .sheet(isPresented: $presentAddNewExercise){
+                TrainerAddExerciseView(userId: user.userId)
+            }
     }
 }
 

@@ -101,7 +101,9 @@ class TrainerViewModel : ObservableObject {
                 print("Exercise saved successfully.")
             }
         }
-        
-        
+    }
+    
+    func submitExercise(userId: String){
+        addExercise(userExercise: userExericse, userId: userId)
     }
 }
