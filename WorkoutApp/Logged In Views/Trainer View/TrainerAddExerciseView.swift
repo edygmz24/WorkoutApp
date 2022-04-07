@@ -13,6 +13,8 @@ struct TrainerAddExerciseView: View {
     
     @Environment(\.presentationMode)  var presentationMode
     
+    var numberOfExercises : Int
+    
     var userId : String
     
     var body: some View {
@@ -23,20 +25,20 @@ struct TrainerAddExerciseView: View {
                     TextField("Exercise Details", text: $trainerViewModel.userExericse.exerciseDetails)
                 }
             }
+            .navigationBarTitle("New Exercise", displayMode: .inline)
+            .navigationBarHidden(false)
+            .navigationBarItems(
+                leading: Button(action: {
+                    cancelledTapped()
+                }, label: {
+                    Text("Cancel")
+                }),
+                trailing: Button(action: {
+                    submitTapped()
+                }, label: {
+                    Text("Submit")
+                }))
         }
-        .navigationBarTitle("New Exercise", displayMode: .inline)
-        .navigationBarHidden(false)
-        .navigationBarItems(
-            leading: Button(action: {
-                cancelledTapped()
-            }, label: {
-                Text("Cancel")
-            }),
-            trailing: Button(action: {
-                submitTapped()
-            }, label: {
-                Text("Submit")
-            }))
     }
     
     func cancelledTapped(){
@@ -44,7 +46,7 @@ struct TrainerAddExerciseView: View {
     }
 
     func submitTapped(){
-        trainerViewModel.submitExercise(userId: userId)
+        trainerViewModel.submitExercise(userId: userId, numberOfExercise: numberOfExercises)
         dismiss()
     }
 
@@ -56,6 +58,6 @@ struct TrainerAddExerciseView: View {
 
 struct TrainerAddExerciseView_Previews: PreviewProvider {
     static var previews: some View {
-        TrainerAddExerciseView(userId: "randomId")
+        TrainerAddExerciseView(numberOfExercises: 4, userId: "randomId")
     }
 }

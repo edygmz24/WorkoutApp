@@ -83,16 +83,19 @@ class TrainerViewModel : ObservableObject {
         }
     }
     
-    func addExercise(userExercise: ExerciseDetails, userId: String){
+    func addExercise(userExercise: ExerciseDetails, userId: String, numberOfExercise: Int){
         
         let db = Firestore.firestore()
         var documentId = ""
         
-        if self.totalExercises == 0 {
+        if numberOfExercise == 0 {
             documentId = "exercise_1"
         } else {
-            documentId = "exercise_" + String(self.totalExercises+1)
+            documentId = "exercise_" + String(numberOfExercise+1)
         }
+        
+        print("Total number of exercises: \(self.totalExercises)" )
+        print("Document ID is: " + documentId)
         
         db.collection(userId+"_Exercise").document(documentId).setData(["exerciseName": userExercise.exerciseName, "exerciseDetails": userExercise.exerciseDetails]) { err in
             if let err = err {
@@ -103,7 +106,21 @@ class TrainerViewModel : ObservableObject {
         }
     }
     
-    func submitExercise(userId: String){
-        addExercise(userExercise: userExericse, userId: userId)
+    func submitExercise(userId: String, numberOfExercise: Int){
+        addExercise(userExercise: userExericse, userId: userId, numberOfExercise: numberOfExercise)
+    }
+    
+    func deleteExercises(userId: String){
+        let db = Firestore.firestore()
+        
+        self.userExerciseList.forEach { exercise in
+            db.collection(userId+"_Exercise").document(exercise.id).delete(){ err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed: " + exercise.id)
+                }
+            }
+        }
     }
 }

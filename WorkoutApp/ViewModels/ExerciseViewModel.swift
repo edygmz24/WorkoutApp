@@ -61,5 +61,4 @@ class ExerciseViewModel : ObservableObject {
             }
         }
     }
-    
 }
